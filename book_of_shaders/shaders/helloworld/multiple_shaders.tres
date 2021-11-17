@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+//voce pode usar vários shaders segido
+//you can use multiple in a row
+
+void fragment(){
+	//escolhi a cor
+	//Set the initial color
+	COLOR = vec4(0.5f, 0.2f, 0f, 1f);
+	
+	//cria linhas equidistantes em função da posição xy na textura
+	//create equidistant lines in function of the xy texture position
+	vec4 lines = vec4(sin(UV.y/TEXTURE_PIXEL_SIZE.y),0f,0f,1f);
+	
+	//mistura a cor com as linhas. o terceiro argumento representa a força da mistura
+	//mix the color of the texture and the lines. the third argument is the mix force
+	
+	COLOR = mix(COLOR,lines,mod(TIME,1f));
+	
+	
+	
+	
+	
+	
+	
+}"
+
+[resource]
+shader = SubResource( 5 )

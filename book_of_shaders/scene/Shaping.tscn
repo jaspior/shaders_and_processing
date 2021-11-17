@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+//voce pode definir funçoes a ser usadas. escreve o tipo, argumentos que recebe e output
+//you can define functions to use. Write the return type, args, etc
+
+float plot(vec2 str){
+	//hermit interpolation	
+	return smoothstep(0.02,0.0, abs(str.y - str.x));
+}
+
+void fragment(){
+	
+	vec2 str = UV.xy/TEXTURE_PIXEL_SIZE;
+	
+	float y = str.x;
+	
+	vec3 color = vec3(y);
+	
+	float pct = plot(str);
+	color = (1f - pct)*color + pct*vec3(0f,1f,0f);
+	
+	COLOR = vec4(color,1);
+	
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="Shaping" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="line" type="ColorRect" parent="GridContainer"]
+material = SubResource( 2 )
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

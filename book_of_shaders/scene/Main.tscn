@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scene/Main.gd" type="Script" id=1]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -434.0
+margin_bottom = 20.0
+text = "CanvasItemMaterial"
+items = [ "CanvasItemMaterial", null, false, 0, null, "HelloWorld", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -77.0
+margin_top = 26.0
+margin_right = -3.0
+margin_bottom = 46.0
+text = "change to"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene" type="Node" parent="."]
+
+[connection signal="item_selected" from="CanvasLayer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment(){
+	
+	/*
+	hello world. O COLOR muda a cor de tudo ali. 
+	ele usa um vec4 que representa {vermelho, verde, azul, alpha}
+	pode escrever vec4(r,g,b,a), vec4(vec3(r,g,b),a), vec4(vec2,vec2) etc.
+	Não se esqueça do decimal 1.5 ou do indicador de float 1f
+	
+	hello world. The color bult-in function change the color off all the sprite
+	the vec4 represents the rgba. You can write it like vec4(r, g, b, a),
+	vec4(vec3(r,g,b),a), vec4(vec2,vec2) and other combination. Do not forget
+	the decimal, 1.5 or 1f
+	
+	*/
+	COLOR = vec4(1f, 0.5 , 0, 1f);
+	
+}"
+
+[resource]
+shader = SubResource( 1 )

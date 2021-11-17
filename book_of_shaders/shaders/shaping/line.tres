@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+//voce pode definir funçoes a ser usadas. escreve o tipo, argumentos que recebe e output
+//you can define functions to use. Write the return type, args, etc
+
+float plot(vec2 str){
+	//hermit interpolation	
+	return smoothstep(0.02,0.0, abs(str.y - str.x));
+}
+
+void fragment(){
+	
+	vec2 str = UV.xy/TEXTURE_PIXEL_SIZE;
+	
+	float y = str.x;
+	
+	vec3 color = vec3(y);
+	
+	float pct = plot(str);
+	color = (1f - pct)*color + pct*vec3(0f,1f,0f);
+	
+	COLOR = vec4(color,1);
+	
+	
+}
+"
+
+[resource]
+shader = SubResource( 1 )

@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tv.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 4
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.117647, 0.333333, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlendMix" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+material = SubResource( 2 )
+margin_right = 120.0
+margin_bottom = 120.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlendAdd" type="TextureRect" parent="."]
+material = SubResource( 3 )
+margin_left = 131.0
+margin_top = 3.0
+margin_right = 251.0
+margin_bottom = 123.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlendSub" type="TextureRect" parent="."]
+material = SubResource( 4 )
+margin_left = 299.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 127.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlendMultiplier" type="TextureRect" parent="."]
+material = SubResource( 5 )
+margin_left = 14.0
+margin_top = 164.0
+margin_right = 134.0
+margin_bottom = 284.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlendMixAlpha" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+material = SubResource( 6 )
+margin_left = 154.0
+margin_top = 165.0
+margin_right = 274.0
+margin_bottom = 285.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

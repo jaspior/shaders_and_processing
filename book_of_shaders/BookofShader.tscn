@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BookofShaders.gd" type="Script" id=1]
+[ext_resource path="res://shaders/shaping/line.tres" type="Material" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+margin_left = 34.0
+margin_top = 41.0
+margin_right = 490.0
+margin_bottom = 569.0
+text = "teste"

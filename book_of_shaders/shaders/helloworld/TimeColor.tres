@@ -1,0 +1,19 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+// unifroms são usados para que a proprieda possa ser acessada no inspetor do objeto
+
+// uniforms are sued to acess the variable in the inspector
+uniform float frequency = 1f;
+
+// Voce pode usar hints para facilitar no editor
+// you can use hints to make it easy in the editor
+uniform float offset : hint_range(0,20) = 2f; 
+
+void fragment(){
+	
+	COLOR = vec4(abs(sin(TIME*frequency + offset)),0f,0f,1f);
+	
+}"

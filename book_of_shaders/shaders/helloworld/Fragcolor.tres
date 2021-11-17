@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float screen_pixel_multiplier : hint_range(0,15) = 10;
+
+void fragment(){
+	
+	// dependendo da posição na tela ou tamanho da texture, muda a cor 
+	// depending of the screen position or texture size, the color changes
+	
+	vec2 st = FRAGCOORD.xy*(screen_pixel_multiplier*SCREEN_PIXEL_SIZE);
+	COLOR = vec4(st,0f,1f);
+	
+	
+}"
+
+[resource]
+shader = SubResource( 5 )
+shader_param/screen_pixel_multiplier = 10.0
